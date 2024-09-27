@@ -6,7 +6,9 @@ API_KEY = ""
 client = OpenAI(api_key=API_KEY)
 app = FastAPI()
 
-
+@app.get("/")
+async def read_root():
+    return {"Message": "Welcome to the Threat Engine API"}
 ##Add cors in place so it can take in specific IP addrs
 @app.post("/arch_data")
 async def arch_data(request: Request):
