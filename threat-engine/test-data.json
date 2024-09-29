@@ -1,0 +1,96 @@
+{
+  "shapes": [
+    {
+      "type": "container",
+      "id": "client_container",
+      "position": {
+        "x": 100,
+        "y": 100
+      },
+      "size": {
+        "width": 200,
+        "height": 100
+      },
+      "label": "Client",
+      "shapes": [
+        {
+          "type": "rectangle",
+          "id": "client_browser",
+          "position": {
+            "x": 120,
+            "y": 120
+          },
+          "size": {
+            "width": 160,
+            "height": 60
+          },
+          "label": "Browser"
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "id": "server_container",
+      "position": {
+        "x": 400,
+        "y": 100
+      },
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "label": "Server",
+      "shapes": [
+        {
+          "type": "rectangle",
+          "id": "web_server",
+          "position": {
+            "x": 420,
+            "y": 120
+          },
+          "size": {
+            "width": 160,
+            "height": 60
+          },
+          "label": "Web Server"
+        },
+        {
+          "type": "rectangle",
+          "id": "database",
+          "position": {
+            "x": 420,
+            "y": 200
+          },
+          "size": {
+            "width": 160,
+            "height": 60
+          },
+          "label": "Database"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "client_browser",
+      "to": "web_server",
+      "label": "HTTP Request"
+    },
+    {
+      "from": "web_server",
+      "to": "client_browser",
+      "label": "HTTP Response"
+    },
+    {
+      "from": "web_server",
+      "to": "database",
+      "label": "SQL Query"
+    },
+    {
+      "from": "database",
+      "to": "web_server",
+      "label": "SQL Response"
+    }
+  ]
+}
+
