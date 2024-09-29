@@ -55,22 +55,19 @@ public class ThreatAgentServiceImpl implements ThreatAgentService {
         try {
             DocumentContents document = objectMapper.readValue(jsonString, DocumentContents.class);
             List<DocumentContents.Page> pages = document.getPages();
-            // send items object to Agent
 
             DocumentContents.Items items = pages.get(0).getItems();
-            // Send response to the threat agent service.
-            String url = threatAgentUrl + "/threat_analysis";
+            String jsonBody = objectMapper.writeValueAsString(items);
+            String url = threatAgentUrl + "/arch_data";
 
-            ResponseEntity<String> reportResponse = performPostRequest(url, documentContents.getBody());
+            ResponseEntity<String> reportResponse = performPostRequest(url, jsonBody);
 
             if (reportResponse.getStatusCode() == HttpStatus.OK) {
-                // Save the report to the database
-                // Return the Report ID or status to the client
-                response = new ResponseEntity<>(HttpStatus.OK);
+
+                response = reportResponse;
             } else {
                 response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
-            // how long does it take to generate the report?
         } catch (Exception e) {
             e.printStackTrace();
         }

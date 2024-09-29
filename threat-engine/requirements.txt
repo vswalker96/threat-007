@@ -32,6 +32,6 @@ tqdm==4.66.5
 typer==0.12.5
 typing_extensions==4.12.2
 uvicorn==0.30.6
-uvloop==0.20.0
+# uvloop==0.20.0
 watchfiles==0.24.0
 websockets==13.1
