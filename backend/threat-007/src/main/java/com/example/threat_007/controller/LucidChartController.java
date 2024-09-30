@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 
-@CrossOrigin(origins = {"http://localhost:4200", "http://172.18.0.4:4200"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://172.18.0.4:4200", "http://138.197.3.104", "*"})
 @RestController
 public class LucidChartController {
 
