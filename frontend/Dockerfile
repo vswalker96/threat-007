@@ -24,4 +24,4 @@ RUN npm install -g http-server
 EXPOSE 80
 
 # Start the HTTP server
-CMD ["http-server", "/frontend", "-p", "80"]
+CMD ["http-server", "/frontend", "-p", "$PORT"]
