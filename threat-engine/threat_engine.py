@@ -5,26 +5,33 @@ import os
 from dotenv import load_dotenv
 
 
-
 load_dotenv()
 
 API_KEY = os.getenv("OPENAI_API_KEY")
 
 
 client = OpenAI(api_key=API_KEY)
+
 app = FastAPI()
+
+origins = [
+    "*",  # Adjust the origin as needed
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://my-frontend-app.herokuapp.com"],
+    allow_origins=origins,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+
 @app.get("/")
 async def read_root():
     return {"Message": "Welcome to the Threat Engine API"}
-##Add cors in place so it can take in specific IP addrs
+
+
 @app.post("/arch_data")
 async def arch_data(request: Request):
     arch_data = await request.json()
@@ -70,7 +77,3 @@ async def arch_data(request: Request):
 
     print(completion.choices[0].message.content)
     return {"response": response_content}
-
-
-# change to env variable
-# turn this openai call to a class to be resued
