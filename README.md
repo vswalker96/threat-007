@@ -2,6 +2,11 @@
 
 **Threat007** is an intelligent AI-powered agent designed to detect and analyze potential security threats within cloud architectures. Inspired by the stealth and precision of 007, it consumes application architecture flowcharts from Lucidchart, uses OpenAI to perform threat analysis, and generates detailed PDF reports. The platform enables users to stay ahead of vulnerabilities and ensure the security of their systems.
 
+- **Video Demo**: https://youtu.be/KubLZvZFTwQ
+- Contributors LinkedIn:
+   - https://www.linkedin.com/in/victoria-s-walker/
+   - https://www.linkedin.com/in/louisarnold/    
+
 ## **Table of Contents**
 - [Project Overview](#project-overview)
 - [Architecture](#architecture)
@@ -14,7 +19,6 @@ Threat007 is composed of three main components:
 - **Backend (Spring Boot)**: Acts as the orchestrator, handling communication between the frontend, Lucidchart API, and the Python microservice.
 - **Python Microservice**: Processes the threat analysis using OpenAI and generates PDF reports.
 - **Frontend (Angular)**: Provides a user-friendly interface to trigger analyses and view/download reports.
-- **Video Demo**: https://youtu.be/KubLZvZFTwQ
 
 ## **Architecture**
 
