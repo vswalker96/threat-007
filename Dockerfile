@@ -17,8 +17,14 @@ RUN cat /app/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
-COPY threat-engine /app
+#COPY threat-engine /app
+#include the whole project under threat-engine
+COPY threat-007 /app
 
 EXPOSE 8000
+EXPOSE $PORT
 
-CMD ["uvicorn", "threat_engine:app", "--host", "0.0.0.0", "--port", "8000"]
+#CMD ["uvicorn", "threat_engine:app", "--host", "0.0.0.0", "--port", "8000"]
+#Dynamically adding the port
+#CMD ["uvicorn", "threat_engine:app", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["sh", "-c", "uvicorn threat_engine:app --host 0.0.0.0 --port $PORT"]
