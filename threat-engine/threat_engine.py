@@ -1,10 +1,20 @@
 from fastapi import FastAPI, Request, Body
 from openai import OpenAI
+from fastapi.middleware.cors import CORSMiddleware
+
+
 
 #add in OS env variable
 API_KEY = ""
 client = OpenAI(api_key=API_KEY)
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://my-frontend-app.herokuapp.com"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def read_root():
