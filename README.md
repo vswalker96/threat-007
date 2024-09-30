@@ -14,6 +14,7 @@ Threat007 is composed of three main components:
 - **Backend (Spring Boot)**: Acts as the orchestrator, handling communication between the frontend, Lucidchart API, and the Python microservice.
 - **Python Microservice**: Processes the threat analysis using OpenAI and generates PDF reports.
 - **Frontend (Angular)**: Provides a user-friendly interface to trigger analyses and view/download reports.
+- **Video Demo**: https://youtu.be/KubLZvZFTwQ
 
 ## **Architecture**
 
