@@ -1,0 +1,17 @@
+.threat-report-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .threat-report-container h2 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .threat-report-container div {
+    white-space: pre-wrap;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+  }
