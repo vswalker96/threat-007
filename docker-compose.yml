@@ -16,6 +16,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    environment:
+      - LUCIDCHART_API_KEY=${LUCIDCHART_API_KEY}
     depends_on:
       - threat-engine
 
@@ -25,3 +27,4 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+
