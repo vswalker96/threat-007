@@ -28,11 +28,9 @@ The system is designed as a microservice architecture with the following data fl
 
 - **Frontend:** Angular
 - **Backend:** Java Spring Boot
-- **Microservice:** Python (Flask or FastAPI)
-- **Database:** PostgreSQL or MySQL
+- **Microservice:** Python (FastAPI)
+- **Database:** MongoDB
 - **AI Processing:** OpenAI API
-- **PDF Generation:** Python libraries (`ReportLab`, `PDFKit`)
-- **Cloud Storage:** (Optional) AWS S3 or similar
 
 ## **Getting Started**
 
@@ -40,8 +38,9 @@ The system is designed as a microservice architecture with the following data fl
 - Java 17+
 - Python 3.8+
 - Node.js 16+ and npm
-- PostgreSQL/MySQL
+- mongoDB Atlas
 - Lucidchart API Key and OpenAI API Key
+- URLs
 
 ### **Installation**
 

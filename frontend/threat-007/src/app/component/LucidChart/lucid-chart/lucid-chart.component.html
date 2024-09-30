@@ -1,0 +1,22 @@
+<div class="report-generation-container">
+    <div class="logo-container">
+        <div>
+            <div class="logo-bg" style="height: 200px; width: 300px; margin: auto;" ></div>
+        </div>
+    </div>
+    
+    <ul class="document-list">
+        <li *ngFor="let item of documentDetails" class="document-item">
+            <a href="#" (click)="handleClickedDocument(item.documentId)" class="document-link">{{ item.title }}</a>
+        </li>
+    </ul>
+</div>
+
+<div class="report-generation-container">
+    <div *ngIf="isLoading" class="spinner-container">
+            <div class="spinner"></div>
+        </div>
+<app-threat-report *ngIf="showReport" [data]="reportResponse"></app-threat-report>
+</div>
+
+

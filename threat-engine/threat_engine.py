@@ -1,11 +1,16 @@
 from fastapi import FastAPI, Request, Body
 from openai import OpenAI
 from fastapi.middleware.cors import CORSMiddleware
+import os
+from dotenv import load_dotenv
 
 
 
-#add in OS env variable
-API_KEY = ""
+load_dotenv()
+
+API_KEY = os.getenv("OPENAI_API_KEY")
+
+
 client = OpenAI(api_key=API_KEY)
 app = FastAPI()
 
@@ -61,7 +66,10 @@ async def arch_data(request: Request):
         model="gpt-4o-mini", messages=[{"role": "user", "content": prompt}]
     )
 
+    response_content = completion.choices[0].message.content
+
     print(completion.choices[0].message.content)
+    return {"response": response_content}
 
 
 # change to env variable
