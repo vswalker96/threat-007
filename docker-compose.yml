@@ -1,29 +1,27 @@
-version: '3.8'
+version: '3'
 
 services:
-  backend:
-    build:
-      context: .
-      dockerfile: backend/Dockerfile.backend
-    ports:
-      - "8080:8080"
-    environment:
-      - SPRING_PROFILES_ACTIVE=dev
-
   frontend:
     build:
-      context: .
-      dockerfile: frontend/Dockerfile.frontend
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "80:4200" # Adjust this according to your app
     depends_on:
       - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - threat-engine
 
   threat-engine:
     build:
-      context: .
-      dockerfile: threat-engine/Dockerfile.threat-engine
+      context: ./threat-engine
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    depends_on:
-      - backend

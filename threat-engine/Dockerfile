@@ -11,7 +11,7 @@ RUN pip install --upgrade pip setuptools
 RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 # Copy the Python application files
-COPY . /app/threat-engine
+COPY . /app
 
 # Expose port for FastAPI
 EXPOSE 8000

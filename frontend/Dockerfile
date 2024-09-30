@@ -1,27 +1,23 @@
+# Use the official Node.js image as the base
 FROM node:18 as builder
 
+# Set the working directory in the container
 WORKDIR /frontend
 
-# Copy the frontend project files
-COPY frontend/threat-007 /frontend
+# Copy package.json and package-lock.json to install dependencies first (faster builds)
+COPY /threat-007/package*.json /frontend/
 
-# Install dependencies and build the frontend application
+# Install dependencies
 RUN npm install --legacy-peer-deps
-RUN npm run build --prod
 
-# Stage 2: Serve the frontend application using a simple HTTP server
-FROM node:18
+# Copy the rest of the Angular project files
+COPY /threat-007 /frontend
 
-WORKDIR /frontend
+# Install Angular CLI globally
+RUN npm install -g @angular/cli
 
-# Copy the built frontend application from the builder stage
-COPY --from=builder /frontend/dist /frontend
+# Expose the port for the Angular development server
+EXPOSE 4200
 
-# Install a simple HTTP server
-RUN npm install -g http-server
-
-# Expose port for the HTTP server
-EXPOSE 80
-
-# Start the HTTP server
-CMD ["http-server", "/frontend", "-p", "$PORT"]
+# Start the Angular development server with ng serve
+CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "4200"]
