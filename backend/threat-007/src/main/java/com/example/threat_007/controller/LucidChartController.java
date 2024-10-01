@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.slf4j.Logger;
 
+@RequestMapping("/api")
 @RestController
 public class LucidChartController {
 
