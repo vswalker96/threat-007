@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ThreatAgentService {
   
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'http://backend:8080';
 
   constructor(private http: HttpClient) { }
 
