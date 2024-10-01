@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class LucidChartService {
   
-  private apiUrl = 'http://localhost:8080/api';
+  private apiUrl = 'http://backend:8080/api';
 
   constructor(private http: HttpClient) { }
 
