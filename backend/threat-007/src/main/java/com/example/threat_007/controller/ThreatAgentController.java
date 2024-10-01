@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = {"http://localhost:4200", "http://172.18.0.4:4200", "http://138.197.3.104:4200", "*"})
 @RestController
 public class ThreatAgentController {
 
